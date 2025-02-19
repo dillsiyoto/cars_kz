@@ -32,4 +32,4 @@
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/IceMelisa/kars_kz.git
