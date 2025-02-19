@@ -22,6 +22,11 @@
 ![Страница авторизации](images/log.png)
 
 
+А вот пример страницы профиля:
+
+![Страница авторизации](images/profiel.png)
+
+
 
 ## My face when i see you have ask me a stupid question
 
