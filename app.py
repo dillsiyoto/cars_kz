@@ -14,7 +14,33 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def get_main():
+    
+
     return render_template('base.html')
+
+
+@app.route('/create_post', methods=['GET', 'POST'])
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
+        price = request.form['price']
+
+        conn = sqlite3.connect('post.db')
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO post (title, description, price)
+            VALUES (?, ?, ?)
+        """, (title, description, price))
+
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('get_main'))  
+
+    return render_template('create_post.html')
+
 
 @app.route('/log', methods=['GET', 'POST'])
 def get_log():
