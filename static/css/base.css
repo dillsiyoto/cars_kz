@@ -46,6 +46,11 @@ header {
     cursor: pointer;
     color: white;
 }
+.profile-buttons {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
 .profile-button {
     background-color: #ff9900;
     border: none;

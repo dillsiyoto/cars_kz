@@ -14,9 +14,15 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def get_main():
-    
+
 
     return render_template('base.html')
+
+
+
+@app.route('/profile', methods=['GET','POST'])
+def get_profile():
+    return render_template('profile.html')
 
 
 @app.route('/create_post', methods=['GET', 'POST'])
