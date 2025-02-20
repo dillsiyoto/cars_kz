@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-    <title>Document</title>
+    <title>Главная страница</title>
 </head>
 <body>
 
@@ -17,11 +17,29 @@
         <button>Поиск</button>
     </div>
     <div class="search-container">
-      
-        <a href="{{ url_for('create' )}}" ><button>Создать объявление</button></a>
+        <a href="{{ url_for('create') }}"><button>Создать объявление</button></a>
     </div>
-    <a href=" {{ url_for('get_profile')}} "><button class="profile-button">Профиль</button></a>
+    <a href="{{ url_for('get_profile') }}"><button class="profile-button">Профиль</button></a>
 </header>
+
+<main>
+    <div class="posts-container">
+        {% for post in posts %}
+            <div class="post-card">
+                <h2 class="post-title">{{ post[1] }}</h2>  
+                <p class="post-description">Описание: {{ post[2] }}</p> 
+                <p class="post-price">Цена: {{ post[3] }} тг</p>
+
+            
+                {% if post[4] %}
+                    <img src="{{ post[4] }}" alt="Post photo" class="post-photo">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+
 
 </body>
 </html>
