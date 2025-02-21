@@ -14,9 +14,14 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def get_main():
+    conn = sqlite3.connect('post.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM post ')
+    spisok:list = cursor.fetchall()
+    conn.commit()
+    conn.close()
 
-
-    return render_template('base.html')
+    return render_template('base.html', spisok = spisok)
 
 
 
