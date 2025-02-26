@@ -9,7 +9,8 @@ conn.execute("""
              id INTEGER PRIMARY KEY AUTOINCREMENT,
              title TEXT NOT NULL UNIQUE,
              description TEXT NOT NULL UNIQUE,
-             price INTEGER
+             price INTEGER,
+             photo_path TEXT
         )
 """)
 
